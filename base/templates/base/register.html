@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+{% block link %}
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+        rel="stylesheet" />
+{% endblock link %}
+{% block style %}
+  <style>
+    @media (min-width: 1025px) {
+        .h-custom {
+          height: 100vh !important;
+        }
+      }
+      .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+      }
+      .card-registration .select-arrow {
+        top: 13px;
+      }
+      
+      .bg-indigo {
+        background-color: #3B2FB0;
+      }
+      @media (min-width: 992px) {
+        .card-registration-2 .bg-indigo {
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+      }
+      @media (max-width: 991px) {
+        .card-registration-2 .bg-indigo {
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+      }
+
+      .from-sec{
+        background-image: url('https://images.alphacoders.com/988/988021.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    
+  </style>
+{% endblock style %}
+{% block title %}
+  Register
+{% endblock title %}
+{% block content %}
+  <section class="h-100 h-custom from-sec">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2"
+               style="border-radius: 15px">
+            <div class="card-body p-0">
+              <form class="row g-0" method="POST" action="">
+                {% csrf_token %}
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="text"
+                                 name="name"
+                                 id="form3Examplev2"
+                                 class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplev2">First name</label>
+                          <div>
+                            {% if name %}
+                              {% for exc in name %}
+                                <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                  {{ exc }}
+                                </div>
+                              {% endfor %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="text"
+                                 name="surname"
+                                 id="form3Examplev3"
+                                 class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplev3">Last name</label>
+                          <div>
+                            {% if surname %}
+                              {% for exc in surname %}
+                                <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                  {{ exc }}
+                                </div>
+                              {% endfor %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline">
+                        <input type="number"
+                               name="age"
+                               id="form3Examplev6"
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev6">Age</label>
+                        <div>
+                          {% if age %}
+                            {% for exc in age %}
+                              <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                {{ exc }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline">
+                        <input type="text"
+                               name="language"
+                               id="form3Examplev6"
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev6">Language</label>
+                        <div>
+                          {% if language %}
+                            {% for exc in language %}
+                              <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                {{ exc }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline">
+                        <input type="email"
+                               name="email"
+                               id="form3Examplev4"
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev4">Email</label>
+                        <div>
+                          {% if email %}
+                            {% for exc in email %}
+                              <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                {{ exc }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline">
+                        <input type="password"
+                               name="password"
+                               id="form3Examplev5"
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev5">Password</label>
+                        <div>
+                          {% if password %}
+                            {% for exc in password %}
+                              <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                {{ exc }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 bg-indigo text-white">
+                  <div class="p-5">
+                    <h3 class="fw-normal mb-5">Club Details</h3>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input type="text"
+                               name="favorite_game"
+                               id="form3Examplea2"
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea2">Favorite Game</label>
+                        <div>
+                          {% if favorite_game %}
+                            {% for exc in favorite_game %}
+                              <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                {{ exc }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input type="text"
+                               name="favorite_genre"
+                               id="form3Examplea3"
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea3">Favorite Genre</label>
+                        <div>
+                          {% if favorite_genre %}
+                            {% for exc in favorite_genre %}
+                              <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                {{ exc }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input type="text"
+                               name="favorite_beverage"
+                               id="form3Examplea4"
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea4">Favorite Beverage</label>
+                        <div>
+                          {% if favorite_beverage %}
+                            {% for exc in favorite_beverage %}
+                              <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                {{ exc }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-5 mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="text"
+                                 name="device"
+                                 id="form3Examplea7"
+                                 class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea7">Gaming Device</label>
+                          <div>
+                            {% if device %}
+                              {% for exc in device %}
+                                <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                  {{ exc }}
+                                </div>
+                              {% endfor %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-7 mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="number"
+                                 name="club_rating"
+                                 id="form3Examplea8"
+                                 step="0.1"
+                                 class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea8">Rate Us</label>
+                          <div>
+                            {% if club_rating %}
+                              {% for exc in club_rating %}
+                                <div class="list-group-item list-group-item-action px-3 border-0 rounded-2 mb-2 list-group-item-danger error-msg">
+                                  {{ exc }}
+                                </div>
+                              {% endfor %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit"
+                            class="btn btn-light btn-lg"
+                            data-mdb-ripple-color="dark">Register</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+{% block script %}
+  <!-- MDB -->
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
+{% endblock script %}
